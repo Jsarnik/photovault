@@ -1,0 +1,33 @@
+/*iframe*/
+#upload_frame {
+	border:0px;
+	height:40px;
+	width:400px;
+	display:none;
+}
+
+#progress_container {
+  /* width: 300px; */
+  height: 30px;
+  border: 1px solid #CCCCCC;
+  background-color: #EBEBEB;
+  display: block;
+  margin: 5px 0px -15px 0px;
+  text-align: center;
+}
+
+#progress_bar {
+	position: relative; 
+	height: 30px; 
+	background-color: #CDC5FF; 
+	width: 0%; 
+	z-index:10; 
+}
+
+#progress_completed {
+	font-size:16px; 
+	z-index:40; 
+	line-height:30px; 
+	padding-left:4px; 
+	color:#333;
+}
