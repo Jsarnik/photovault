@@ -54,25 +54,25 @@ $(document).ready(function(){
       <div style="width: 100%; text-align:center;margin-bottom:10px;"><div class="button add" ng-click="open(results['sub-items'], 'subItem')" style="display: inline-block;">Category +</div></div>
       <li id="category-{{$index}}" class="category-container" ng-repeat="subItems in results['sub-items'] | filter: filterCategory track by $index">
 
-        <div class="info-overlay" ng-class="{'include' : isInclude && selectedID == 'subItem-' + $parent.$index + '-' +  $index}"></div>
+        <div class="info-overlay" ng-class="{'include' : isInclude && selectedID == 'subItem-' + $index}"></div>
 
-                <div id="subItem-{{$parent.$index}}-{{$index}}" class="category-header">
-            				<div class="info-overlay"  ng-class="{'edit' : isEdit && selectedID == 'subItem-' + $parent.$index +  '-' + $index,'remove' : isInclude && selectedID == 'subItem-' + $parent.$index +  '-' + $index, 'move' : isMove && selectedID == 'subItem-' + $parent.$index +  '-' + $index}"></div>            		
+                <div id="subItem-{{$index}}" class="category-header">
+            				<div class="info-overlay"  ng-class="{'edit' : isEdit && selectedID == 'subItem-' + $index,'remove' : isInclude && selectedID == 'subItem-'+ $index, 'move' : isMove && selectedID == 'subItem-' + $index}"></div>            		
             		<div class="align-header-buttons">	
-                              <div ng-mouseover="hoverIn('include', 'subItem-' + $parent.$index +  '-' + $index);" class="button delete disableable" disable="isDisabled" ng-mouseleave="hoverOut('include');" >
+                              <div ng-mouseover="hoverIn('include', 'subItem-' +  $index);" class="button delete disableable" disable="isDisabled" ng-mouseleave="hoverOut('include');" >
                               	<div class="disableable" ng-click="remove(results['sub-items'], subItems);" ng-confirm-click="*WARNING* Deleting category ({{subItems.name}}) will delete all of it's images too?">&#9747;</div>
                               </div>
 
-                              <div ng-mouseover="hoverIn('move', 'subItem-' + $parent.$index +  '-' + $index);" class="button up disableable" disable="isDisabled" ng-mouseleave="hoverOut('move');" ng-click="changePosition(results['sub-items'],$index, subItems,false)">&#9650;</div>
+                              <div ng-mouseover="hoverIn('move', 'subItem-' +  $index);" class="button up disableable" disable="isDisabled" ng-mouseleave="hoverOut('move');" ng-click="changePosition(results['sub-items'],$index, subItems,false)">&#9650;</div>
 
                             
-                              <div ng-mouseover="hoverIn('move', 'subItem-' + $parent.$index +  '-' + $index);" class="button down disableable" disable="isDisabled" ng-mouseleave="hoverOut('move');" ng-click="changePosition(results['sub-items'],$index, subItems,true)">&#9660;</div>
+                              <div ng-mouseover="hoverIn('move', 'subItem-' + $index);" class="button down disableable" disable="isDisabled" ng-mouseleave="hoverOut('move');" ng-click="changePosition(results['sub-items'],$index, subItems,true)">&#9660;</div>
 
-                        <div ng-hide="isShow('subItem-'+ $parent.$index +  '-' +$index)">
+                        <div ng-hide="isShow('subItem-'+ $index)">
                             <span>{{subItems.name}} </span><span>( {{subItems.images.length}} )</span>                            
-                            <a class="edit" href="javascript:void(0)" ng-click="update(subItems, 'subItem-'+ $parent.$index +  '-' +$index);">Edit</a>
+                            <a class="edit" href="javascript:void(0)" ng-click="update(subItems, 'subItem-'+$index);">Edit</a>
                             </div>
-                        <div ng-show="isShow('subItem-'+ $parent.$index +  '-' +$index)">
+                        <div ng-show="isShow('subItem-'+$index)">
                             <input ng-model="subItems.name"/>
                             <a href="javascript:void(0)" ng-click="confirmSave();">Save</a> |
                             <a href="javascript:void(0)" ng-click="reset(subItems);">Cancel</a>
